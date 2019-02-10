@@ -1,0 +1,214 @@
+<!-- Designed & Developed by G Rohit
+https://about.me/grohit -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://i.postimg.cc/B6kk4MyD/AM-icon.png" />
+    <meta name="application-name" content="Pricing | AcceptMe,in">
+    <meta name="description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+    <meta property="og:description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="Pending,request,instagram,insta,gram,telegram,facebook,gmail,whatsapp,intasgrm,graminsta,user,followers,acceptall,allow,users, pending instagram requests, downloader, insta DP, instagram profile pic, instagram profile, picture, download instagram video, video downloader, Acceptme,Accept,Me">
+    <meta name="robots" content="index, follow">
+    <meta name="copyright" content="Acceptme.in">
+    <meta name="revisit-after" content="1 week">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+
+    <title>Login | AcceptMe.in</title>
+    <link rel="stylesheet" href="../static/acceptmestyling.css">
+</head>
+
+<body class="bg">
+    <div class="content">
+        <div class="container">
+            <!-- Image and text -->
+
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a class="navbar-brand" href="{{ url_for('core.index') }}">
+                    <img src="https://i.postimg.cc/5NWT002Q/Accept-ME-white.png" alt="accept me logo" width="120px"
+                        height="auto">
+                </a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mobileMenubg" id="navbarCollapse">
+
+                    <ul class="navbar-nav ml-auto text-dark text-center ">
+                        <li class="nav-item" id="activePage">
+                            <a class="nav-link" href="{{ url_for('core.index') }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+
+
+
+                        {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Tools
+                            </a>
+                            <div class="dropdown-menu mobileMenuDropDownbg" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url_for('users.accept_pending_requests') }}">Accept Pending Requests</a>
+                                <a class="dropdown-item" href="{{ url_for('users.live_counter') }}">Live Counter</a>
+                                <!-- <a class="dropdown-item" href="Downloader.html">Post/DP Downloader</a> -->
+                                <!-- <a class="dropdown-item" href="MassDelete.html">Mass Post Delete</a> -->
+                                <!-- <a class="dropdown-item" href="MassUnfollow.html">Mass Unfollow</a> -->
+                            </div>
+                        </li>
+                        {% endif %}
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('core.pricing') }}">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('core.faq') }}">FAQ</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('core.contact') }}">Contact</a>
+                        </li>
+                        {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.logout') }}">Log Out</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="{{ url_for('users.login') }}" method="POST" class="text-center" onsubmit="return validateLogin()" name="loginForm">
+
+                        <input type="email" name="userEmailID" id="loginUN" placeholder="ENTER YOUR EMAIL ID" > <br>
+                        <!-- <p id="errorUserLoginEmail">testing error message</p> -->
+                        <input type="password" class="" placeholder="ENTER YOUR PASSWORD" id="loginPW" name="userLoginPassword"
+                            title="Please enter your password"> <span toggle="#loginPW" class="fa fa-fw fa-eye field-icon toggle-password"
+                            style="cursor: pointer;"></span>
+<br>
+                        <button type="submit" id="loginBtn">Login</button> <br><br>
+                        <a href="{{ url_for('users.forgot_password') }}" class="text-left loginFormLinks mr-5 font-text" data-toggle="modal" data-target="#forgotPWmodal">Forgot
+                            Password?</a>
+                        <a href="#" class="text-right loginFormLinks ml-5 font-text" data-toggle="modal" data-target="#signUpmodal">Sign
+                            up</a>
+                    </form>
+                    <!-- Modal for forgot password-->
+                    <div class="modal fade" id="forgotPWmodal" tabindex="-1" role="dialog" aria-labelledby="forgotPWmodalTitle"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content" style="
+background: #ffffffe1;">
+                                <div class="modal-body text-center">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <form action="{{ url_for('users.forgot_password') }}" method="post" id="forgotPWform">
+                                        <input type="email" name="resetPassword" id="resetPassword" placeholder="Enter your registered Email ID"
+                                            required>
+                                        <br> <br>
+                                        <!-- <div class="modal-footer"> -->
+                                        <button type="submit" class="btn btn-secondary btn-sm" id="submitForpwReset">Send
+                                            Password Reset
+                                            Link</button>
+                                        <!-- </div> -->
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal for forgot password ends -->
+
+                    <!-- Modal for Sign up form-->
+                    <div class="modal fade" id="signUpmodal" tabindex="-1" role="dialog" aria-labelledby="signUpmodalTitle"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content" style="
+                background: #ffffffe1;">
+                                <div class="modal-body text-center">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <form action="{{ url_for('core.index') }}" method="POST" id="signUpForm" name="newUserSignUpForm">
+                                        <p class="font-weight-bold m-0">New user sign up form: All fields are required </p>
+
+                                        <input type="email" name="emailID" id="regEmailID" placeholder="Enter a valid Email ID">
+                                        <p class="formInstructions">Email address must be valid & active Eg: yourname@websitename.com</p>
+                                        <input type="text" name="InstaID" id="regInstaID" placeholder="Enter Instagram username"
+                                            required>
+                                            <p class="formInstructions">Enter the Instagram username for which you want to accept requests </p>
+                                          <input type="password" name="Password" id="regPassword" placeholder="Enter a strong password" required>
+                                        <p class="formInstructions">Password must be alphanumeric, should contain 8-20 characters</p>
+                                        <input type="password" name="Con_Password" id="regConfirmPassword" placeholder="Confirm password" required>
+                                        <p class="formInstructions">Re enter the same password</p>
+
+                                        <input type="tel" name="telNumber" id="regTelNumber" placeholder="Enter a valid mobile number" required>
+                                        <p class="formInstructions">Enter a valid phone number. Eg: +918888888888</p>
+
+                                        <div class="modal-footer text-center">
+                                        <button type="submit" class="btn btn-secondary btn-sm" id="signUpbtn">Sign up</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal for Sign up form ends -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="push"></div> -->
+    </div>
+
+    <footer class="text-center footer">
+        <a href="{{ url_for('core.index') }}" style="text-decoration: none">AcceptMe</a> <span class="color:#ffffff;">&copy; 2018</span>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    $(".toggle-password").click(function () {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+
+    });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+
+</script>
+<script src="../static/validations.js"></script>
+</html>

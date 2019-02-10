@@ -1,0 +1,270 @@
+<!-- Designed & Developed by G Rohit
+https://about.me/grohit -->
+<!doctype html>
+<html lang="en">
+<!-- saved from url=(0014)about:internet -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="shortcut icon" href="https://i.postimg.cc/B6kk4MyD/AM-icon.png" />
+  <meta name="application-name" content="Pricing | AcceptMe,in">
+  <meta name="description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+  <meta property="og:description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="keywords" content="Pending,request,instagram,insta,gram,telegram,facebook,gmail,whatsapp,intasgrm,graminsta,user,followers,acceptall,allow,users, pending instagram requests, downloader, insta DP, instagram profile pic, instagram profile, picture, download instagram video, video downloader, Acceptme,Accept,Me">
+<meta name="robots" content="index, follow">
+<meta name="copyright" content="Acceptme.in">
+<meta name="revisit-after" content="1 week">
+
+<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="all-ie-only.css" />
+<![endif]-->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+
+  <title>FAQ | AcceptMe</title>
+  <link rel="stylesheet" href="../static/acceptmestyling.css">
+  <!-- <link rel="stylesheet" href="animate.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+
+<body class="bg">
+  <div class="content">
+    <div class="container">
+      <!-- Image and text -->
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-fixed-top">
+        <a class="navbar-brand" href="{{ url_for('core.index') }}">
+          <img src="https://i.postimg.cc/5NWT002Q/Accept-ME-white.png" alt="accept me logo" width="120px" height="auto">
+        </a>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse mobileMenubg" id="navbarCollapse">
+
+          <ul class="navbar-nav ml-auto text-dark text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('core.index') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Tools
+              </a>
+              <div class="dropdown-menu mobileMenuDropDownbg" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('users.accept_pending_requests') }}">Accept Pending Requests</a>
+                <a class="dropdown-item" href="{{ url_for('users.live_counter') }}">Live Counter</a>
+                <!-- <a class="dropdown-item" href="Downloader.html">Post/DP Downloader</a> -->
+                <!-- <a class="dropdown-item" href="MassDelete.html">Mass Post Delete</a> -->
+                <!-- <a class="dropdown-item" href="MassUnfollow.html">Mass Unfollow</a> -->
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('core.pricing') }}">Pricing</a>
+            </li>
+            <li class="nav-item" id="activePage">
+              <a class="nav-link" href="{{ url_for('core.faq') }}">FAQ</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('core.contact') }}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col-md-12">
+          <!-- content goes here -->
+
+          <h1 class="text-white mt-5 animated slideInLeft slow"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+          <p class="text-white p-3 font-weight-bold animated slideInDown slow" style="background: #000000a1"><span
+              class="">Click on the below question to see the respective answer.</span> </p>
+            <!-- FAQ questions starts -->
+            <!-- FAQ question 1   starts -->
+
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq1" role="button" aria-expanded="false"
+              aria-controls="faq1">Q1. I am unable to Login.</a>
+
+
+          </p>
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq1">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded"> <p>You will only be able to login if you have subscribed to any of the pack. If you are unable to login even with a subscription then kindly Turn-Off the 2 factor authentication & if the   <img src="https://i.postimg.cc/kGYCrPWv/Accept-ME-logo.png" alt="Accept-ME-white logo" width="75" height="auto" >  prompts you for <span class="text-danger font-weight-bold">"This was me authentication"</span> then kindly Open your Instagram account and click <span class="text-danger font-weight-bold">"This was me"</span> & then headover to website and proceed.</p></div>
+              </div>
+
+            </div>
+          </div>
+          <!-- FAQ question 1   ends -->
+
+          <!-- FAQ question 2   starts -->
+          <p class="animated slideInDown slow"> <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq2"
+              role="button" aria-expanded="false" aria-controls="faq2">Q2. How many requests can I accept in one go?</a>
+          </p>
+
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq2">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">You can accept upto 10k Requests per 75 minutes.</div>
+              </div>
+            </div>
+          </div> <!-- FAQ question 2   ends -->
+
+
+          <!-- FAQ question 3 starts -->
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq3" role="button" aria-expanded="false"
+              aria-controls="faq3">Q3. What if I started accepting the requests and I want to stop accepting them in
+              between?</a>
+          </p>
+
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq3">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">Be careful when you select the number of
+                  requests you accept since you CAN NOT STOP the accepting process in between. <span class="text-danger">(
+                    PS: We are working on this feature and will bring it soon. )</span></div>
+              </div>
+            </div>
+          </div> <!-- FAQ question 3 ends -->
+
+
+          <!-- FAQ question 4 starts -->
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq4" role="button" aria-expanded="false"
+              aria-controls="faq4">Q4. Instagram shows "Couldn’t refresh feed" when I open my page after accepting
+              requests, is my account disabled?</a>
+
+          </p>
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq4">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">No, your account will not be disabled and it be perfectly fine. "Couldn’t refresh feed" may appears because of the automatic process which is faster that the manual process, so it might be possible that Instagram may detect an unusual/suspicious activity which eventually freezes your account. There is no need to panic your account will be normal in 10-60 minutes. Chances of happening this is less than 1%.</div>
+              </div>
+            </div>
+          </div> <!-- FAQ question 4 ends -->
+
+
+          <!-- FAQ question 5 starts -->
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq5" role="button" aria-expanded="false"
+              aria-controls="faq5">Q5. Does the website saves my password when I Login?</a></p>
+
+
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq5">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">We don’t save your passwords as our website has no user session and database connection. To make it more secure once you accept your desired number of requests you are automatically
+                  logged out within couple of seconds. Password is required even when you visit any other page within the website and try to accept the requests back again </div>
+              </div>
+            </div>
+          </div> <!-- FAQ question 5 ends -->
+
+
+          <!-- FAQ question 6 starts -->
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq6" role="button" aria-expanded="false"
+              aria-controls="faq6">Q6. Can AcceptMe.in accept all request automatically by itself after specific
+              interval of time?</a>
+          </p>
+
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq6">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">We at Accept Me love your account more
+                  than you and for such a automatic process your account have to be logged in until all the pending
+                  requests are accepted. Since keeping your account safe & sound is our number one priority its better
+                  you login each time you wish to accept your requests. But still, We are working on this to provide
+                  you this feature without risking your security. </div>
+              </div>
+            </div>
+          </div><!-- FAQ question 6 ends -->
+
+          <!-- FAQ question 7 starts -->
+          <p class="animated slideInDown slow">
+            <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq7" role="button" aria-expanded="false"
+              aria-controls="faq7">Q7. Can I change my password whenever I desire to change?</a>
+          </p>
+
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse" id="faq7">
+                <div class="card card-body mb-2 shadow p-3 bg-white rounded">Yes, you can change it every time you feel you need to change. </div>
+              </div>
+            </div>
+          </div><!-- FAQ question 7 ends -->
+
+            <!-- Misc addtional queries -->
+            <p class="animated slideInDown slow">
+              <a class="accordion mb-2 text-white" data-toggle="collapse" href="#faq8" role="button" aria-expanded="false"
+                aria-controls="faq8">Still got questions in mind?</a>
+            </p>
+
+            <div class="row">
+              <div class="col">
+                <div class="collapse multi-collapse" id="faq8">
+                  <div class="card card-body mb-2 shadow p-3 bg-white rounded"><p>Feel free to reach out to us and we will help you in best possible way. Visit our <a class="text-primary" href="{{ url_for('core.contact') }}">Contact </a> page.</p></div>
+                </div>
+              </div>
+            </div><!-- Misc addtional queries  ends -->
+
+          <!-- Content ends here -->
+        </div>
+      </div>
+
+    </div>
+    <div class="push"></div>
+  </div>
+
+  <footer class="text-center footer">
+    <a href="{{ url_for('core.index') }}" style="text-decoration: none">AcceptMe</a> <span class="color:#ffffff;">&copy; 2018</span>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+<script>
+  $(".toggle-password").click(function () {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+<script>
+  $(function () {
+    $(document).scroll(function () {
+      var $nav = $(".navbar-fixed-top");
+      $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    });
+  });
+</script>
+
+</html>
