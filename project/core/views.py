@@ -1,3 +1,4 @@
+import requests
 from project import db
 from project.users.models import Users
 from werkzeug.security import generate_password_hash
@@ -11,7 +12,6 @@ core_blueprint = Blueprint('core', __name__, template_folder='templates', static
 def index():
 
     errors = []
-    # import ipdb; ipdb.set_trace()
     if request.method == 'POST':
 
         email = request.form['emailID']
@@ -40,7 +40,6 @@ def index():
             db.session.commit()
 
             return redirect(url_for('users.login'))
-
     return render_template('index.html', errors=errors)
 
 
