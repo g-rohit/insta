@@ -14,6 +14,10 @@ class InstagramBot:
         self.password = password
         self.options = webdriver.ChromeOptions()
         self.options.add_argument('--headless')
+        self.options.add_argument('--disable-extentions')
+        self.options.add_argument('--enable-popup-blocking')
+        self.options.add_argument('--disable-gpu')
+        self.options.add_argument("--log-level=3")
         self.driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', chrome_options=self.options)
 
 
