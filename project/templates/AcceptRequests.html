@@ -68,6 +68,12 @@ crossorigin="anonymous">
                 <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('core.contact') }}">Contact</a>
                       </li>
+
+                      {% if current_user.is_authenticated %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ url_for('users.logout') }}">Log Out</a>
+                      </li>
+                      {% endif %}
               </ul>
             </div>
           </nav>
@@ -80,11 +86,10 @@ crossorigin="anonymous">
                 <div class="card animated slideInUp slow acceptor-card ">
                   <h3 class="card-header font-body text-center text-warning">Welcome @Username !!
                     </h3>
-                   <form action="" method="post" id="acceptorForm" >
+                   <form action="" method="POST" id="acceptorForm" >
                             <label for="FormControlSelectFollowersNo" class="text-white">Select the number of Requests you want to accept.</label> <br>
                             <select name="noOfFollowers" class="form-control mb-3" id="FormControlSelectFollowersNo" onchange="showfield(this.options[this.selectedIndex].value)">
                               <option>1K</option>
-                              <option>2K</option>
                               <option>2K</option>
                               <option>3K</option>
                               <option>4K</option>

@@ -18,6 +18,7 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True)
     insta_username = db.Column(db.String(100), unique=True)
     hashed_password = db.Column(db.String(100))
+    accept_request_count = db.Column(db.String)
     mob_number = db.Column(db.String(20))
     date_time = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 

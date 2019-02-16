@@ -1,4 +1,3 @@
-import requests
 from project import db
 from project.users.models import Users
 from werkzeug.security import generate_password_hash
