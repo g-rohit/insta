@@ -41,7 +41,7 @@ def accept_pending_requests():
                 else:
                     resp = insta_obj.accept_pending_requests(instagram_accept_request_count)
             except:
-                resp = "No request to accept"
+                resp = "No request to accepts"
             insta_obj.closeBrowser()
             return render_template('acceptor_display.html', instagram_username = session['insta_username'], resp=resp)
         else:
@@ -52,7 +52,7 @@ def accept_pending_requests():
         last_day = (till_date - datetime.datetime.utcnow()).days
     except:
         last_day = None
-
+    print(current_user.is_authenticated)
     return render_template('AcceptRequests.html', instagram_username = session['insta_username'], last_day=last_day)
 
 
@@ -126,7 +126,7 @@ def login():
                     ok = login_user(user)
                     print(ok)
                     print("subscribed")
-                    print(current_user.is_authenticated)
+                    print(current_user.is_authenticated())
                     next = request.args.get('next')
 
                     if next == None or not next[0] == '/':

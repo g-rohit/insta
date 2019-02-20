@@ -24,5 +24,8 @@ class Users(UserMixin, db.Model):
     def __init__(self,insta_username):
         self.insta_username = insta_username
 
+    def is_authenticated(self):
+        return True
+
     def __str__(self):
         return self.insta_username
