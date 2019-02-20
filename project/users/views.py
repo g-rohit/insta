@@ -41,7 +41,7 @@ def accept_pending_requests():
                 else:
                     resp = insta_obj.accept_pending_requests(instagram_accept_request_count)
             except:
-                resp = "No request to accepts"
+                resp = "No request to accept"
             insta_obj.closeBrowser()
             return render_template('acceptor_display.html', instagram_username = session['insta_username'], resp=resp)
         else:
