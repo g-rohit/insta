@@ -42,6 +42,17 @@ def login():
 
 
 @login_required
+@admins_blueprint.route('/admin_account', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        insta_username = request.form["search"]
+        users = Users.query.filter(Users.insta_username.like("%{}%".format(insta_username))).all()
+        return render_template('admin/account.html', users=users)
+
+    obj = Users.query.all()
+    return render_template('admin/account.html', users=obj)
+
+@login_required
 @admins_blueprint.route('/admin_account', methods=['GET','POST'])
 def account():
 

@@ -158,3 +158,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('core.index'))
+
+
+@users_blueprint.route('/test')
+def test():
+    return render_template('result.html', last_day=2)

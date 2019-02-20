@@ -2,3 +2,4 @@ venv
 __pycaache__
 test.py
 development.env
+instamax.pem

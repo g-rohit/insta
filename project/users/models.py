@@ -1,7 +1,6 @@
 import sys
 sys.path.append('../../')
 
-import datetime
 from flask_login import UserMixin
 from project import db, login_manager
 
@@ -14,7 +13,7 @@ class Users(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    insta_username = db.Column(db.String(100), unique=True)
+    insta_username = db.Column(db.String(100), unique=True, index=True)
     accept_request_count = db.Column(db.String, nullable=True)
     is_subscribed = db.Column(db.Boolean, default=False)
     subscription_plan = db.Column(db.String(100), nullable=True)

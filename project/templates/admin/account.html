@@ -86,8 +86,12 @@ tr:nth-child(even) {
 
     <div class="col-md-12">
 
-
+      <form class="farhaan" action="{{ url_for('admin.search') }}" method="POST">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit">Submit</button>
+  </form>
           <table>
+
             <tr>
               <th style="text-align:center">Instagram Username</th>
               <th style="text-align:center">Subscription Plan</th>
