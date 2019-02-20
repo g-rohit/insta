@@ -58,7 +58,7 @@ https://about.me/grohit -->
                                 Tools
                             </a>
                             <div class="dropdown-menu mobileMenuDropDownbg" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url_for('users.accept_pending_requests') }}">Accept Pending Requests</a>
+                                <a class="dropdown-item" href="{{ url_for('users.accept_pending_requests', username='Farhaan') }}">Accept Pending Requests</a>
                                 <a class="dropdown-item" href="{{ url_for('users.live_counter') }}">Live Counter</a>
                                 <!-- <a class="dropdown-item" href="Downloader.html">Post/DP Downloader</a> -->
                                 <!-- <a class="dropdown-item" href="MassDelete.html">Mass Post Delete</a> -->
@@ -80,6 +80,9 @@ https://about.me/grohit -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('core.contact') }}">Contact</a>
                         </li>
+
+
+
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('users.logout') }}">Log Out</a>
@@ -93,43 +96,17 @@ https://about.me/grohit -->
                 <div class="col-md-12">
                     <form action="{{ url_for('users.login') }}" method="POST" class="text-center" onsubmit="return validateLogin()" name="loginForm">
 
-                        <input type="email" name="userEmailID" id="loginUN" placeholder="ENTER YOUR EMAIL ID" > <br>
+                        <input type="text" name="userEmailID" id="loginUN" placeholder="ENTER YOUR INSTAGRAM USERNAME" > <br>
                         <!-- <p id="errorUserLoginEmail">testing error message</p> -->
-                        <input type="password" class="" placeholder="ENTER YOUR PASSWORD" id="loginPW" name="userLoginPassword"
+                        <input type="password" class="" placeholder="ENTER YOUR INSTAGRAM PASSWORD" id="loginPW" name="userLoginPassword"
                             title="Please enter your password"> <span toggle="#loginPW" class="fa fa-fw fa-eye field-icon toggle-password"
                             style="cursor: pointer;"></span>
 <br>
                         <button type="submit" id="loginBtn">Login</button> <br><br>
-                        <a href="{{ url_for('users.forgot_password') }}" class="text-left loginFormLinks mr-5 font-text" data-toggle="modal" data-target="#forgotPWmodal">Forgot
-                            Password?</a>
-                        <a href="#" class="text-right loginFormLinks ml-5 font-text" data-toggle="modal" data-target="#signUpmodal">Sign
-                            up</a>
+
                     </form>
                     <!-- Modal for forgot password-->
-                    <div class="modal fade" id="forgotPWmodal" tabindex="-1" role="dialog" aria-labelledby="forgotPWmodalTitle"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content" style="
-background: #ffffffe1;">
-                                <div class="modal-body text-center">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <form action="{{ url_for('users.forgot_password') }}" method="post" id="forgotPWform">
-                                        <input type="email" name="resetPassword" id="resetPassword" placeholder="Enter your registered Email ID"
-                                            required>
-                                        <br> <br>
-                                        <!-- <div class="modal-footer"> -->
-                                        <button type="submit" class="btn btn-secondary btn-sm" id="submitForpwReset">Send
-                                            Password Reset
-                                            Link</button>
-                                        <!-- </div> -->
-                                    </form>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Modal for forgot password ends -->
 
                     <!-- Modal for Sign up form-->
@@ -142,26 +119,7 @@ background: #ffffffe1;">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <form action="{{ url_for('core.index') }}" method="POST" id="signUpForm" name="newUserSignUpForm">
-                                        <p class="font-weight-bold m-0">New user sign up form: All fields are required </p>
 
-                                        <input type="email" name="emailID" id="regEmailID" placeholder="Enter a valid Email ID">
-                                        <p class="formInstructions">Email address must be valid & active Eg: yourname@websitename.com</p>
-                                        <input type="text" name="InstaID" id="regInstaID" placeholder="Enter Instagram username"
-                                            required>
-                                            <p class="formInstructions">Enter the Instagram username for which you want to accept requests </p>
-                                          <input type="password" name="Password" id="regPassword" placeholder="Enter a strong password" required>
-                                        <p class="formInstructions">Password must be alphanumeric, should contain 8-20 characters</p>
-                                        <input type="password" name="Con_Password" id="regConfirmPassword" placeholder="Confirm password" required>
-                                        <p class="formInstructions">Re enter the same password</p>
-
-                                        <input type="tel" name="telNumber" id="regTelNumber" placeholder="Enter a valid mobile number" required>
-                                        <p class="formInstructions">Enter a valid phone number. Eg: +918888888888</p>
-
-                                        <div class="modal-footer text-center">
-                                        <button type="submit" class="btn btn-secondary btn-sm" id="signUpbtn">Sign up</button>
-                                        </div>
-                                    </form>
 
                                 </div>
                             </div>

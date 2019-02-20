@@ -4,12 +4,13 @@ from flask_mail import Mail
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from itsdangerous import URLSafeTimedSerializer
+# from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy_utils import create_database, database_exists
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Farees143k@localhost/instagram'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Farees143k@localhost/instamax'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -32,9 +33,11 @@ login_manager.login_view = 'users.login'
 
 from project.core.views import core_blueprint
 from project.users.views import users_blueprint
+from project.admin.views import admins_blueprint
 from project.error_pages.handler import error_pages
 
 
+app.register_blueprint(error_pages)
 app.register_blueprint(core_blueprint)
 app.register_blueprint(users_blueprint)
-app.register_blueprint(error_pages)
+app.register_blueprint(admins_blueprint)

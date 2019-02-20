@@ -1,0 +1,199 @@
+<!-- Designed & Developed by G Rohit
+https://about.me/grohit -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://i.postimg.cc/B6kk4MyD/AM-icon.png" />
+   <meta name="application-name" content="Pricing | AcceptMe,in">
+   <meta name="description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+   <meta property="og:description" content="An efficient website to help you accept all your pending requests on Instagram profile in a very convenient way. Visit once and experience the magic." />
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="keywords" content="Pending,request,instagram,insta,gram,telegram,facebook,gmail,whatsapp,intasgrm,graminsta,user,followers,acceptall,allow,users, pending instagram requests, downloader, insta DP, instagram profile pic, instagram profile, picture, download instagram video, video downloader, Acceptme,Accept,Me">
+ <meta name="robots" content="index, follow">
+ <meta name="copyright" content="Acceptme.in">
+ <meta name="revisit-after" content="1 week">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- font awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+crossorigin="anonymous">
+
+    <title>Page Not Found</title>
+<link rel="stylesheet" href="../static/acceptmestyling.css">
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin: 100px auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+  </head>
+  <body class="bg">
+<div class="content">
+    <div class="container">
+    <!-- Image and text -->
+
+      <nav class="navbar navbar-expand-lg fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.postimg.cc/5NWT002Q/Accept-ME-white.png" alt="accept me logo" width="120px" height="auto">
+                    </a>
+                  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse mobileMenubg" id="navbarCollapse">
+
+              <ul class="navbar-nav ml-auto text-dark text-center">
+
+
+
+
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.logout') }}">Admin Logout</a>
+                      </li>
+              </ul>
+            </div>
+          </nav>
+
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+
+</div>
+
+
+	<div class="row">
+
+    <div class="col-md-12">
+
+
+          <table>
+            <tr>
+              <th style="text-align:center">Instagram Username</th>
+              <th style="text-align:center">Subscription Plan</th>
+              <th style="text-align:center">Is Subscription</th>
+              <th style="text-align:center">Action</th>
+
+            </tr>
+
+            {% for elements in users %}
+              <form action="{{ url_for('admin.account') }}" method="POST" class="text-center">
+            <tr>
+
+              <td style="text-align:center">{{ elements.insta_username }}</td>
+
+
+              <td style="text-align:center">
+                   <select name="subscriptions">
+                     <option value="None">------</option>
+                      <option value="7">7 Days</option>
+                      <option value="15">15 Days</option>
+                      <option value="30">30 Days</option>
+                   </select>
+                </td>
+
+
+                <td style="text-align:center">{{ elements.is_subscribed }}</td>
+
+              <td style="text-align:center">
+
+                  <input type="hidden" name="username" value="{{ elements.insta_username }}">
+                  <input type="hidden" name="is_subscribed" value="{{ elements.is_subscribed }}">
+                  <input type="submit" id="loginBtn" name="activate" onclick="return confirm('Are you sure?')" value="Activate" {% if elements.is_subscribed %} disabled {% endif %}>
+
+              </td>
+
+            </tr>
+              </form>
+            {% endfor %}
+
+
+          </table>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<div class="push"></div>
+</div>
+
+<footer class="text-center footer">
+    <a href="#" style="text-decoration: none">AcceptMe</a> <span class="color:#ffffff;">&copy; 2018</span>
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+
+  <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+<script>
+  $(function () {
+    $(document).scroll(function () {
+      var $nav = $(".navbar-fixed-top");
+      $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    });
+  });
+</script>
+
+<script type="text/javascript">
+/*$('form select').on('change', function(){
+  $(this).closest('form').submit();
+});*/
+</script>
+
+
+
+</html>

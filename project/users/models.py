@@ -1,35 +1,28 @@
 import sys
 sys.path.append('../../')
+
 import datetime
 from flask_login import UserMixin
 from project import db, login_manager
-from werkzeug.security import generate_password_hash, check_password_hash
-
 
 @login_manager.user_loader
-def user_load(user_id):
-    return Users.query.get(user_id)
+def load_user(user_id):
+    return Users.query.get(int(user_id))
 
 
-class Users(db.Model, UserMixin):
+class Users(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True)
     insta_username = db.Column(db.String(100), unique=True)
-    hashed_password = db.Column(db.String(100))
-    accept_request_count = db.Column(db.String)
-    mob_number = db.Column(db.String(20))
-    date_time = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    accept_request_count = db.Column(db.String, nullable=True)
+    is_subscribed = db.Column(db.Boolean, default=False)
+    subscription_plan = db.Column(db.String(100), nullable=True)
+    from_date = db.Column(db.DateTime, nullable=True)
+    till_date = db.Column(db.DateTime, nullable=True)
 
-    def __int__(self,email,insta_username,password,mob_number):
-        self.email = email
+    def __init__(self,insta_username):
         self.insta_username = insta_username
-        self.hashed_password = generate_password_hash(password)
-        self.mob_number = mob_number
 
-    def check_hashed_password(self,password):
-        return check_password_hash(self.hashed_password, password)
-
-    def __repr__(self):
-        return f"email {self.email}"
+    def __str__(self):
+        return self.insta_username

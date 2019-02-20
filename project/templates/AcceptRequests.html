@@ -25,6 +25,16 @@ crossorigin="anonymous">
     <title>Request Acceptor | AcceptMe</title>
 <link rel="stylesheet" href="../static/acceptmestyling.css">
 
+<style media="screen">
+.farhaan {
+    text-align: center;
+    border: 1px solid green;
+    background-color: orange;
+    line-height: 7px;
+    padding: 16px 0 0 0;
+}
+</style>
+
   </head>
   <body class="bg">
 <div class="content">
@@ -71,7 +81,7 @@ crossorigin="anonymous">
 
                       {% if current_user.is_authenticated %}
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ url_for('users.logout') }}">Log Out</a>
+                          <a class="nav-link" href="{{ url_for('users.logout') }}">Log out</a>
                       </li>
                       {% endif %}
               </ul>
@@ -84,8 +94,8 @@ crossorigin="anonymous">
             <div class="card-deck m-auto" id="acceptorCardWidth">
                 <!-- first contact card starts-->
                 <div class="card animated slideInUp slow acceptor-card ">
-                  <h3 class="card-header font-body text-center text-warning">Welcome @Username !!
-                    </h3>
+                  <h3 class="card-header font-body text-center text-warning">Welcome {{ instagram_username }}!!
+                  </h3>
                    <form action="" method="POST" id="acceptorForm" >
                             <label for="FormControlSelectFollowersNo" class="text-white">Select the number of Requests you want to accept.</label> <br>
                             <select name="noOfFollowers" class="form-control mb-3" id="FormControlSelectFollowersNo" onchange="showfield(this.options[this.selectedIndex].value)">
@@ -145,10 +155,14 @@ background: #ffffffe1;">
 
 </div>
 
-
 <div class="push"></div>
-</div>
 
+</div>
+<div class="farhaan">
+  <p>Your subscription will end in {{last_day}} day{% if last_day > 1 %}s{% endif %}.</p>
+</div>
+<!--{% if last_day  %}-->
+<!--{% endif %}-->
 <footer class="text-center footer">
     <a href="{{ url_for('core.index') }}" style="text-decoration: none">AcceptMe</a> <span class="color:#ffffff;">&copy; 2018</span>
 </footer>
